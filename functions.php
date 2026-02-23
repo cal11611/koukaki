@@ -17,3 +17,8 @@ if ( get_stylesheet() !== get_template() ) {
         return get_option( 'theme_mods_' . get_template(), $default );
     } );
 }
+
+function add_script() {
+    wp_enqueue_script('myScript', get_stylesheet_directory_uri() . '/js/app.js', array(), '1.0.0', true);
+}
+add_action('wp_enqueue_scripts', 'add_script');
