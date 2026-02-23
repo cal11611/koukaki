@@ -52,6 +52,9 @@ get_header();
                 <div>
                     <h3>Le Lieu</h3>
                     <p><?php echo get_theme_mod('place'); ?></p>
+                    <div class="big_cloud"><img src="<?php echo get_stylesheet_directory_uri() . '/images/big_cloud.png'; ?>"></div>
+                    <div class="little_cloud"><img src="<?php echo get_stylesheet_directory_uri() . '/images/little_cloud.png'; ?>"></div>
+
                 </div>
 
             </article>
