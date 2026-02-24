@@ -1,4 +1,5 @@
-.site-footer ul::after, #studio h2::before, #studio h2::after, .site-footer::before, .site-footer::after,
+/******************** Flowers rotation *********************/
+.site-footer ul::after, #studio h2::before, #studio h2::after, .oscars_img::before, .oscars_img::after,
 .story h2::after, .story__article::after {
     animation: rotate 8s linear infinite;
 }
@@ -11,9 +12,123 @@
         transform: rotate(360deg);
     }
 }
+/******************** Flowers rotation *********************/
 
-
-.story #characters .other-characters {
-    display: flex;
-    flex-wrap: nowrap !important;
+/***************************Nuages**************************/
+.story #place {
+	background-image: url("../images/fond.png")
 }
+
+.big_cloud {
+    position: absolute;
+    top: 69%;
+    right: 4%;
+}
+
+.little_cloud {
+    position: absolute;
+    top: 78%;
+    right: 34%;
+}
+
+.go_nuages {
+    animation: translate_nuages 4s linear both;
+}
+@keyframes translate_nuages {
+    from {
+        transform: translateX(0);
+    }
+    to {
+        transform: translate(-420px);
+    }
+}
+/***************************Nuages**************************/
+
+/***************************Banner**************************/
+.banner {
+    margin-top: -86px;
+    margin-right: 0;
+    img {
+        margin-top: 20%;
+    }
+}
+
+.banner_video {
+    position: absolute;
+    top: 86px;
+}
+
+.go {
+    animation: translate 4s linear both;
+    img {
+        animation: translate_img 4s linear both;
+    }
+}
+@keyframes translate {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(86px);
+        opacity: 0;
+    }
+}
+
+@keyframes translate_img {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-120px);
+    }
+}
+
+.banner_video_go, video {
+  animation: magic 8s both;
+}
+
+@keyframes magic {
+  from {
+    opacity: 0;   
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.story {
+    margin-top: 80px;
+}
+/***************************Banner**************************/
+/**********************ajout div oscars*********************/
+.oscars {
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.oscars_img {
+    &::before {
+    content: url('../images/Sunflower.png');
+    position: absolute;
+    left: 4em;
+    bottom: 14em;
+    
+  }
+  &::after {
+    content: url('../images/orchid.png');
+    position: absolute;
+    right: -4em;
+    bottom: 14em;
+  }
+}
+@media (max-width: 920px) {
+     .oscars_img::before, .oscars_img::after{
+        content: '';
+    }
+}
+.site-footer::before, .site-footer::after {
+    content: '';
+}
+/**********************ajout div oscars*********************/
