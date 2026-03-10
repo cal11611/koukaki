@@ -15,11 +15,27 @@ observer.observe(document.querySelector(".little_cloud"))
 // banner
 const element = document.querySelector(".banner")
 const element2 = document.querySelector(".banner_video")
-window.onload = (event) => {
-    element.setAttribute("class"," banner go")
-    element2.setAttribute("class","banner_video banner_video_go")
-    
-};
+window.onload = (event) => {myMove()
+  element.setAttribute("class"," banner go")
+  element2.setAttribute("class","banner_video banner_video_go")
+}
+var id = 0;
+function myMove() {
+  var elem = document.getElementById("myImg");   
+  var pos = 460;
+  console.log(elem)
+  clearInterval(id);
+  id = setInterval(frame, 10);
+  function frame() {
+    if (pos == 280) {
+      clearInterval(id);
+    } else {
+      pos--; 
+      elem.style.top = pos + 'px';
+      console.log(elem.style.top) 
+    }
+  }
+}
 // parties se chargeant au défilement
 const parties = new IntersectionObserver ((entries) => {
     for (const entry of entries){
@@ -68,3 +84,16 @@ var swiper = new Swiper('.swiper-container',{
         slideShadows: false,
     },          
 });
+// Menu
+const links = document.querySelectorAll("nav li");
+
+icons.addEventListener("click", () => {
+  nav.classList.toggle("active");
+});
+
+links.forEach((link) => {
+  link.addEventListener("click", () => {
+    nav.classList.remove("active");
+  });
+});
+
