@@ -1,7 +1,8 @@
+@charset "UTF-8";
 /******************** Flowers rotation *********************/
 .site-footer ul::after, #studio h2::before, #studio h2::after, .oscars_img::before, .oscars_img::after,
 .story h2::after, .story__article::after {
-  animation: rotate 8s linear infinite;
+  animation: rotate 24s linear infinite;
 }
 
 @keyframes rotate {
@@ -49,53 +50,72 @@
     transform: translateX(0);
   }
   to {
-    transform: translate(-300px);
+    transform: translateX(-300px);
   }
 }
 /***************************Nuages**************************/
 /***************************Banner**************************/
 .banner {
-  margin-top: -80px;
-  margin-right: 0;
+  position: absolute;
+  top: -16px;
+  right: 4.6%;
+  height: 806px;
+  width: 90.8%;
 }
-.banner img {
-  margin-top: 300px;
+
+#myImg {
+  position: absolute;
+  top: 460px;
+  z-index: 100;
 }
 
 .banner_video {
   position: absolute;
-  top: 80px;
+  top: 0;
   height: 806px;
+  opacity: 0;
+  z-index: -99;
 }
 
 .go {
-  animation: translate 4s linear both;
+  animation: translate 10s linear forwards;
 }
 
 .banner img {
-  animation: translate_img 4s linear both;
+  animation: apparition_img 10s linear both;
 }
 
 @keyframes translate {
-  from {
+  0% {
     transform: translateY(0);
+    opacity: 0;
+  }
+  20% {
+    transform: translateY(20px);
     opacity: 1;
   }
-  to {
+  98% {
     transform: translateY(86px);
+    opacity: 1;
+  }
+  100% {
     background: rgba(0, 0, 0, 0);
   }
 }
-@keyframes translate_img {
-  from {
-    transform: translateY(0);
+@keyframes apparition_img {
+  0% {
+    opacity: 0;
   }
-  to {
-    transform: translateY(-160px);
+  20% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 1;
   }
 }
 .banner_video_go, video {
-  animation: magic 8s both;
+  animation: magic 10s both;
+  animation-delay: 1s;
 }
 
 @keyframes magic {
@@ -103,11 +123,11 @@
     opacity: 0;
   }
   to {
-    opacity: 0.9;
+    opacity: 1;
   }
 }
 .story {
-  margin-top: 86px;
+  margin-top: 822px;
 }
 
 /***************************Banner**************************/
@@ -139,6 +159,10 @@
 }
 .site-footer::before, .site-footer::after {
   content: "";
+}
+
+#studio > div::before {
+  top: 30%;
 }
 
 /**********************ajout div oscars*********************/
@@ -178,41 +202,31 @@
 }
 /***********************chgt sections***********************/
 /**************************titres***************************/
-.story h2 {
-  background-image: url("../images/purple_title_bg.png");
-}
-
 #myCharacters h3 {
   background-image: url("../images/orange_characters_bg.png");
   justify-self: baseline;
 }
 
-#place h3 {
-  background-image: url("../images/orange_place_bg.png");
-}
-
-.studio h2 {
-  background-image: url("../images/purple_studio_bg.png");
-}
-
-.title_ok {
-  animation: title_ok 2s both;
-  animation-delay: 2s;
+.title_ok div {
+  animation: title_ok 1s both;
+  animation-delay: 1s;
 }
 
 @keyframes title_ok {
   from {
     opacity: 0;
+    transform: translateY(48px);
   }
   to {
     opacity: 1;
+    transform: translateY(0px);
   }
 }
 /**************************titres***************************/
 /*********************flottement titre**********************/
-.banner .myImg {
-  animation-delay: 8s;
-  animation: float 6s ease-in-out infinite;
+.banner #myImg {
+  animation-delay: 5s;
+  animation: float 4s ease-in-out infinite;
 }
 
 @keyframes float {
@@ -225,4 +239,58 @@
   100% {
     transform: translateY(0px);
   }
+}
+/*********************flottement titre**********************/
+/***************************Menu****************************/
+li {
+  list-style: none;
+}
+
+a,
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #965df8;
+}
+
+/**** NAVBAR ****/
+nav {
+  background: #ffd5a2;
+  text-align: center;
+  font-size: calc(0.5rem + 1.5vw);
+}
+
+nav ul {
+  position: fixed;
+  display: flex;
+  opacity: 0;
+  top: 10%;
+  flex-direction: column;
+  background: rgba(0, 0, 0, 0);
+  width: 75%;
+  height: 600px;
+  justify-content: space-around;
+  text-align: center;
+  transition: 1s;
+}
+
+nav.active ul {
+  opacity: 1;
+}
+
+#icons {
+  float: right;
+  cursor: pointer;
+  display: block;
+}
+
+#icons:before {
+  content: "☰";
+}
+
+.active #icons:before {
+  content: "✕";
 }/*# sourceMappingURL=myStyle.css.map */
