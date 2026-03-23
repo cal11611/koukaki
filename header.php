@@ -12,7 +12,7 @@
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
-<head>
+    <head>
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
@@ -31,17 +31,27 @@
 <?php wp_body_open(); ?>
 <div id="page" class="site">
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'foce' ); ?></a>
+	<header id="masthead" class="site-header">		
+        <nav id="nav">
+            <span></span>
+            <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+                
+       
+            <div id="myDiv">
+                <div id="top">
+                    <img src="<?php echo get_stylesheet_directory_uri() . '/images/logo.png'; ?>">
+                </div>  
+                <div id="middle">
 
-	<header id="masthead" class="site-header">
-		
-    <nav id="nav">
-        <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
-        <ul>
-            <li><a href="#story">Histoire</a></li>
-            <li><a href="#myCharacters">Personnages</a></li>
-            <li><a href="#place">Lieu</a></li>
-            <li><a href="#studio">Studio Koukaki</a></li>
-         </ul>
-         <div id="icons"></div>
-  </nav>
+                <ul id="ul1">
+                    <li id = "li1"><div><a href="#story">Histoire</a></div></li>
+                    <li id = "li2"><div><a href="#myCharacters">Personnages</a></div></li>
+                    <li id = "li3"><div><a href="#place">Lieu</a></div></li>
+                    <li id = "li4"><div><a href="#studio">Studio Koukaki</a></div></li>
+                </ul>
+
+                </div>
+            </div>
+            <div id="icons"></div>
+        </nav>
 	</header><!-- #masthead -->
