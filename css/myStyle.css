@@ -1,4 +1,8 @@
 @charset "UTF-8";
+html {
+  scroll-behavior: smooth;
+}
+
 /******************** Flowers rotation *********************/
 .site-footer ul::after, #studio h2::before, #studio h2::after, .oscars_img::before, .oscars_img::after,
 .story h2::after, .story__article::after {
@@ -27,32 +31,23 @@
   z-index: 1;
 }
 
-.big_cloud {
+#myAnimation, #myAnimation2 {
   position: absolute;
+  transition: right 6s ease;
+}
+
+#myAnimation {
   top: 66%;
-  right: 16%;
+  right: 100px;
   z-index: -1;
 }
 
-.little_cloud {
-  position: absolute;
+#myAnimation2 {
   top: 80%;
-  right: 40%;
+  right: 600px;
   z-index: -1;
 }
 
-.go_nuages {
-  animation: translate_nuages 4s linear both;
-}
-
-@keyframes translate_nuages {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-300px);
-  }
-}
 /***************************Nuages**************************/
 /***************************Banner**************************/
 .banner {
@@ -78,11 +73,11 @@
 }
 
 .go {
-  animation: translate 10s linear forwards;
+  animation: translate 10s linear both;
 }
 
 .banner img {
-  animation: apparition_img 10s linear both;
+  animation: apparition_img 12s both;
 }
 
 @keyframes translate {
@@ -95,7 +90,7 @@
     opacity: 1;
   }
   98% {
-    transform: translateY(86px);
+    transform: translateY(66px);
     opacity: 1;
   }
   100% {
@@ -115,7 +110,6 @@
 }
 .banner_video_go, video {
   animation: magic 10s both;
-  animation-delay: 1s;
 }
 
 @keyframes magic {
@@ -253,14 +247,126 @@ a:visited {
 }
 
 a:hover {
-  color: #965df8;
+  text-shadow: 3px 3px 5px #FF5C00;
+}
+
+/**before*after**/
+#ul1::after {
+  content: "STUDIO KOUKAKI";
+  position: absolute;
+  bottom: -168px;
+  right: 52%;
+  font-size: 14px;
+}
+
+#li1::before {
+  content: url("../images/orchid.png");
+  position: absolute;
+  top: 12px;
+  left: -12%;
+  animation: rotate 24s linear infinite;
+}
+
+#li2::before {
+  content: url("../images/cat_1.png");
+  position: absolute;
+  top: 86px;
+  left: 14%;
+  animation: float 4s ease-in-out infinite;
+}
+
+#li3::before {
+  content: url("../images/Flower.png");
+  position: absolute;
+  top: 320px;
+  left: 10%;
+  animation: rotate 24s linear infinite;
+}
+
+#li4::before {
+  content: url("../images/cat_2.png");
+  position: absolute;
+  top: 500px;
+  left: 0%;
+  animation: float 4s ease-in-out infinite;
+}
+
+#li4::after {
+  content: url("../images/Hibiscus_footer.png");
+  position: absolute;
+  top: 372px;
+  right: -14%;
+  animation: rotate 24s linear infinite;
+}
+
+#li3::after {
+  content: url("../images/cat_3.png");
+  position: absolute;
+  top: 250px;
+  right: 26%;
+  animation: float 4s ease-in-out infinite;
+}
+
+#li2::after {
+  content: url("../images/randomflower.png");
+  position: absolute;
+  top: 160px;
+  right: -0.6%;
+  animation: rotate 24s linear infinite;
+}
+
+#li1::after {
+  content: url("../images/Sunflower.png");
+  position: absolute;
+  top: 20px;
+  right: 26%;
+  animation: rotate 24s linear infinite;
+}
+
+@media (max-width: 920px) {
+  #li1::before, #li2::before, #li3::before, #li4::before,
+  #li1::after, #li2::after, #li3::after, #li4::after {
+    content: "";
+  }
+  nav {
+    font-size: 16px !important;
+    height: 36px;
+  }
+}
+/****************/
+#myDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  text-align: center;
+  width: 100%;
+  height: 806px;
+  background-color: #fff5e9;
+  position: fixed;
+  top: 36px;
+  opacity: 0;
+}
+
+.active #myDiv {
+  opacity: 1;
+}
+
+#top img {
+  width: 100px;
+  height: 75px;
 }
 
 /**** NAVBAR ****/
 nav {
   background: #ffd5a2;
-  text-align: center;
-  font-size: calc(0.5rem + 1.5vw);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 24px;
+}
+
+nav span {
+  width: 10%;
 }
 
 nav ul {
@@ -270,21 +376,26 @@ nav ul {
   top: 10%;
   flex-direction: column;
   background: rgba(0, 0, 0, 0);
-  width: 75%;
-  height: 600px;
+  width: 100%;
+  height: 480px;
   justify-content: space-around;
   text-align: center;
-  transition: 1s;
+  font-size: 32px;
+}
+
+nav ul li {
+  margin-right: 200px;
 }
 
 nav.active ul {
   opacity: 1;
+  transition: 2s;
 }
 
 #icons {
-  float: right;
   cursor: pointer;
-  display: block;
+  display: flex;
+  align-self: right;
 }
 
 #icons:before {
@@ -293,4 +404,8 @@ nav.active ul {
 
 .active #icons:before {
   content: "✕";
+}
+
+.active li div {
+  animation: title_ok 1s both;
 }/*# sourceMappingURL=myStyle.css.map */
